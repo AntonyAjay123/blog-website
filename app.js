@@ -1,5 +1,5 @@
 //jshint esversion:6
-
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
@@ -14,8 +14,7 @@ const app = express();
 
 
 //-----------------Mongoose-------------
-
-mongoose.connect("mongodb+srv://admin-antony:billiejean456@cluster0.bczwr.mongodb.net/blogDatabase",{useNewUrlParser:true});
+mongoose.connect("mongodb+srv://admin-antony:"+process.env.MONGO_PASSWORD+"@cluster0.bczwr.mongodb.net/blogDatabase",{useNewUrlParser:true});
 const blogSchema= new mongoose.Schema({
   title:{
     type:String,
